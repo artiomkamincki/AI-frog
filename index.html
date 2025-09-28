@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AI Frog — Смарт-шопинг</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-content">
+        <div class="brand">
+          <span class="brand-logo" aria-hidden="true">🐸</span>
+          <h1 class="brand-title">AI Frog</h1>
+        </div>
+        <p class="brand-subtitle">Умный помощник для продуманного шопинга</p>
+      </div>
+      <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="app-nav" hidden>
+        <a class="nav-link" href="#planner">Планировщик</a>
+        <a class="nav-link" href="#ideas">Идеи</a>
+        <a class="nav-link" href="#tips">Советы</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section id="planner" class="card">
+        <h2>Планировщик покупок</h2>
+        <form id="shopping-form" class="shopping-form" autocomplete="off">
+          <label class="field">
+            <span class="field-label">Добавить продукт</span>
+            <div class="field-input">
+              <input type="text" name="item" id="item-input" placeholder="Например, авокадо" maxlength="40" required />
+              <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+          </label>
+        </form>
+
+        <div class="list-header">
+          <h3>Список покупок</h3>
+          <button type="button" class="btn btn-outline" id="clear-list">Очистить</button>
+        </div>
+        <ul id="shopping-list" class="shopping-list" role="list"></ul>
+      </section>
+
+      <section id="ideas" class="card">
+        <h2>Подборки продуктов</h2>
+        <p class="section-description">Комбинации товаров, которые помогут использовать покупки эффективно.</p>
+        <div class="idea-grid" id="idea-grid" role="list"></div>
+      </section>
+
+      <section id="tips" class="card">
+        <h2>Советы по экономии</h2>
+        <ul class="tips-list" id="tips-list" role="list"></ul>
+      </section>
+    </main>
+
+    <aside class="toast" role="status" aria-live="polite" hidden></aside>
+
+    <template id="idea-template">
+      <article class="idea-card" role="listitem">
+        <header class="idea-header">
+          <h3></h3>
+          <span class="idea-badge"></span>
+        </header>
+        <ul class="idea-items"></ul>
+        <p class="idea-desc"></p>
+        <button type="button" class="btn btn-secondary">Добавить в список</button>
+      </article>
+    </template>
+
+    <template id="tips-template">
+      <li class="tip-item" role="listitem">
+        <h3></h3>
+        <p></p>
+      </li>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
